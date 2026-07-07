@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>URO Vaginal Probiotics | O Positiv — Balance Restored</title>
+<style>
+/* ============================================================
+   TOKENS
+============================================================ */
+:root {
+  --bg:          #F7F4EE;
+  --bg-alt:      #EDEEE8;
+  --surface:     #FFFFFF;
+  --border:      #D5D6CE;
+  --text:        #191C1A;
+  --text-2:      #4A5A52;
+  --text-3:      #7A8E83;
+  --accent:      #2A5C43;
+  --accent-2:    #3D7B5C;
+  --accent-lt:   #BDD9CC;
+  --warm:        #D96F40;
+  --warm-lt:     #F3D5C2;
+  --gold:        #B8962C;
+  --star:        #F0A500;
+
+  --display: 'Big Caslon','Caslon','Book Antiqua',Georgia,'Times New Roman',serif;
+  --body:    'Helvetica Neue',Helvetica,Arial,sans-serif;
+  --mono:    'Courier New',Courier,monospace;
+
+  --r:  4px;
+  --rl: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:       #111714;
+    --bg-alt:   #191F1C;
+    --surface:  #1E2821;
+    --border:   #2C3B33;
+    --text:     #EDF2EE;
+    --text-2:   #90A89A;
+    --text-3:   #607060;
+    --accent:   #5AC48A;
+    --accent-2: #72D49A;
+    --accent-lt:#1A3829;
+    --warm:     #E07848;
+    --warm-lt:  #3A2018;
+    --gold:     #CDA840;
+  }
+}
+:root[data-theme="light"] {
+  --bg:#F7F4EE; --bg-alt:#EDEEE8; --surface:#FFFFFF; --border:#D5D6CE;
+  --text:#191C1A; --text-2:#4A5A52; --text-3:#7A8E83;
+  --accent:#2A5C43; --accent-2:#3D7B5C; --accent-lt:#BDD9CC;
+  --warm:#D96F40; --warm-lt:#F3D5C2; --gold:#B8962C; --star:#F0A500;
+}
+:root[data-theme="dark"] {
+  --bg:#111714; --bg-alt:#191F1C; --surface:#1E2821; --border:#2C3B33;
+  --text:#EDF2EE; --text-2:#90A89A; --text-3:#607060;
+  --accent:#5AC48A; --accent-2:#72D49A; --accent-lt:#1A3829;
+  --warm:#E07848; --warm-lt:#3A2018; --gold:#CDA840; --star:#F0A500;
+}
+
+/* ============================================================
+   RESET & BASE
+============================================================ */
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body {
+  font-family: var(--body);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width:100%; display:block; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* ============================================================
+   NAV
+============================================================ */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 0 clamp(1rem, 5vw, 4rem);
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px;
+  backdrop-filter: blur(8px);
+}
+.nav-brand {
+  font-family: var(--display);
+  font-size: 1.2rem;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  color: var(--accent);
+  font-weight: 700;
+}
+.nav-brand span { color: var(--warm); }
+.nav-links {
+  display: flex; align-items: center; gap: 2rem;
+  list-style: none;
+  font-size: 0.875rem;
+  color: var(--text-2);
+}
+.nav-links a { text-decoration:none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--accent); }
+.nav-cta {
+  background: var(--warm); color: #fff;
+  border: none; padding: 0.5rem 1.25rem;
+  border-radius: var(--r);
+  font-family: var(--body); font-size:0.875rem; font-weight:700;
+  cursor: pointer; text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+  letter-spacing: 0.02em;
+}
+.nav-cta:hover { background: #C05A2A; transform: translateY(-1px); }
+
+/* ============================================================
+   HERO
+============================================================ */
+.hero {
+  min-height: 92vh;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  padding: 0 clamp(1rem, 5vw, 4rem);
+  gap: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* The aesthetic risk: a slow-morphing organic blob — evoking bacterial flora */
+.hero-blob {
+  position: absolute;
+  right: -8%;
+  top: -20%;
+  width: 55vw;
+  height: 55vw;
+  max-width: 640px;
+  max-height: 640px;
+  background: radial-gradient(ellipse at 40% 40%,
+    var(--accent-lt) 0%,
+    transparent 70%);
+  border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;
+  opacity: 0.55;
+  animation: morph 14s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+.hero-blob-2 {
+  position: absolute;
+  left: -5%;
+  bottom: -15%;
+  width: 30vw;
+  height: 30vw;
+  max-width: 360px;
+  max-height: 360px;
+  background: radial-gradient(ellipse, var(--warm-lt) 0%, transparent 70%);
+  border-radius: 40% 60% 30% 70% / 60% 40% 70% 30%;
+  opacity: 0.45;
+  animation: morph 18s ease-in-out infinite reverse;
+  pointer-events: none;
+  z-index: 0;
+}
+@keyframes morph {
+  0%,100% { border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%; }
+  33%      { border-radius: 30% 70% 40% 60% / 60% 40% 60% 40%; }
+  66%      { border-radius: 50% 50% 30% 70% / 40% 70% 30% 60%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-blob, .hero-blob-2 { animation: none; }
+}
+
+.hero-content { position: relative; z-index: 2; padding: 5rem 0; }
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  display: flex; align-items: center; gap: 0.75rem;
+}
+.eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 28px; height: 1px;
+  background: var(--accent);
+}
+
+h1 {
+  font-family: var(--display);
+  font-size: clamp(2.8rem, 5.5vw, 5rem);
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+  margin-bottom: 1.5rem;
+}
+h1 em { font-style: italic; color: var(--accent); }
+
+.hero-sub {
+  font-size: 1.1rem;
+  color: var(--text-2);
+  max-width: 500px;
+  line-height: 1.75;
+  margin-bottom: 2.25rem;
+}
+
+.cta-row {
+  display: flex; align-items: center; gap: 1.5rem;
+  flex-wrap: wrap; margin-bottom: 2.5rem;
+}
+.btn-primary {
+  background: var(--warm); color: #fff;
+  border: none; padding: 0.9rem 2.25rem;
+  border-radius: var(--r);
+  font-family: var(--body); font-size: 1rem; font-weight: 700;
+  cursor: pointer; text-decoration: none;
+  transition: all 0.2s;
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  letter-spacing: 0.02em;
+}
+.btn-primary:hover {
+  background: #C05A2A;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(217,111,64,0.38);
+}
+.btn-ghost {
+  font-size: 0.9rem;
+  color: var(--text-2);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 2px;
+  transition: color 0.2s, border-color 0.2s;
+  font-weight: 500;
+}
+.btn-ghost:hover { color: var(--accent); border-color: var(--accent); }
+
+.hero-rating {
+  display: flex; align-items: center; gap: 0.75rem;
+  font-size: 0.875rem; color: var(--text-2);
+}
+.stars { color: var(--star); letter-spacing: 2px; }
+
+/* Product visual */
+.hero-visual {
+  position: relative; z-index: 2;
+  display: flex; justify-content: center; align-items: center;
+  padding: 4rem 0;
+}
+.product-pod {
+  position: relative;
+  animation: float 7s ease-in-out infinite;
+}
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(-14px); }
+}
+@media (prefers-reduced-motion: reduce) { .product-pod { animation: none; } }
+
+.product-pod img {
+  width: 320px;
+  height: 320px;
+  object-fit: contain;
+  filter: drop-shadow(0 32px 48px rgba(0,0,0,0.18));
+  border-radius: 8px;
+}
+
+.pod-badge {
+  position: absolute; top: 16px; right: -16px;
+  background: var(--gold); color: #fff;
+  font-family: var(--mono); font-size: 0.6rem;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.4rem 0.85rem; border-radius: 2px; font-weight: 700;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Satellite orbs */
+.orb {
+  position: absolute; border-radius: 50%; pointer-events: none;
+}
+.orb-1 {
+  width: 70px; height: 70px;
+  background: var(--accent-lt);
+  top: 8%; left: 5%; opacity: 0.7;
+  animation: float 9s ease-in-out infinite 1s;
+}
+.orb-2 {
+  width: 44px; height: 44px;
+  background: var(--warm-lt);
+  bottom: 18%; right: 4%; opacity: 0.8;
+  animation: float 8s ease-in-out infinite 2.5s;
+}
+.orb-3 {
+  width: 26px; height: 26px;
+  background: var(--accent-lt);
+  bottom: 8%; left: 18%; opacity: 0.6;
+  animation: float 10s ease-in-out infinite 0.7s;
+}
+@media (prefers-reduced-motion: reduce) { .orb { animation: none; } }
+
+/* ============================================================
+   PROOF STRIP
+============================================================ */
+.proof-strip {
+  background: var(--accent); color: #fff;
+  padding: 1.25rem clamp(1rem, 5vw, 4rem);
+  display: flex; align-items: center;
+  justify-content: center;
+  gap: clamp(1rem, 4vw, 3.5rem);
+  flex-wrap: wrap;
+}
+.proof-item {
+  display: flex; align-items: center; gap: 0.6rem;
+  font-size: 0.875rem;
+}
+.proof-item strong {
+  font-family: var(--display); font-size: 1.2rem;
+  font-weight: 700; line-height: 1;
+}
+.proof-item small { display:block; font-size: 0.72rem; opacity: 0.75; }
+.proof-sep {
+  width: 1px; height: 28px;
+  background: rgba(255,255,255,0.28);
+}
+
+/* ============================================================
+   SECTION SHELL
+============================================================ */
+.section {
+  padding: clamp(3.5rem,8vw,6rem) clamp(1rem,5vw,4rem);
+}
+.section-label {
+  font-family: var(--mono);
+  font-size: 0.68rem; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--accent);
+  margin-bottom: 0.875rem;
+  display: flex; align-items: center; gap: 0.6rem;
+}
+.section-label::before {
+  content: '';
+  width: 20px; height: 1px; background: var(--accent);
+}
+h2 {
+  font-family: var(--display);
+  font-size: clamp(1.875rem, 3.5vw, 3rem);
+  font-weight: 700; line-height: 1.15;
+  letter-spacing: -0.022em;
+  text-wrap: balance;
+  margin-bottom: 1rem;
+}
+h2 em { font-style: italic; color: var(--accent); }
+h3 {
+  font-family: var(--display);
+  font-size: 1.15rem; font-weight: 700;
+  line-height: 1.3; margin-bottom: 0.5rem;
+}
+
+/* ============================================================
+   PROBLEM
+============================================================ */
+.problem-bg { background: var(--bg-alt); }
+.problem-inner {
+  max-width: 700px; margin: 0 auto; text-align: center;
+}
+.problem-inner > p {
+  font-size: 1.05rem; color: var(--text-2);
+  line-height: 1.8; margin-bottom: 1rem;
+}
+.problem-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(195px, 1fr));
+  gap: 0.75rem;
+  margin: 2rem 0;
+  text-align: left;
+}
+.problem-chip {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 0.875rem 1rem;
+  font-size: 0.875rem; color: var(--text-2);
+  display: flex; align-items: center; gap: 0.625rem;
+}
+.problem-chip::before {
+  content: '—'; color: var(--warm);
+  font-weight: 700; flex-shrink: 0;
+}
+
+/* ============================================================
+   BENEFITS
+============================================================ */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin-top: 3rem;
+}
+.benefit-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--rl);
+  padding: 2rem 1.75rem;
+  transition: transform 0.22s, box-shadow 0.22s;
+  position: relative; overflow: hidden;
+}
+.benefit-card::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 3px; background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s;
+}
+.benefit-card:hover { transform: translateY(-5px); box-shadow: 0 14px 40px rgba(0,0,0,0.1); }
+.benefit-card:hover::after { transform: scaleX(1); }
+.benefit-icon {
+  width: 46px; height: 46px;
+  background: var(--accent-lt);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 1.25rem; font-size: 1.2rem;
+}
+.benefit-card h3 { font-size: 1.05rem; margin-bottom: 0.5rem; }
+.benefit-card p { font-size: 0.875rem; color: var(--text-2); line-height: 1.65; }
+
+/* ============================================================
+   HOW IT WORKS
+============================================================ */
+.how-bg { background: var(--bg-alt); }
+.how-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem; margin-top: 3rem;
+  position: relative;
+}
+.how-steps::before {
+  content: '';
+  position: absolute;
+  top: 31px;
+  left: calc(50% / 3 + 20px);
+  right: calc(50% / 3 + 20px);
+  height: 1px; background: var(--border); z-index: 0;
+}
+.step { text-align: center; position: relative; z-index: 1; }
+.step-num {
+  width: 62px; height: 62px; border-radius: 50%;
+  background: var(--surface);
+  border: 2px solid var(--accent);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1.25rem;
+  font-family: var(--display); font-size: 1.5rem;
+  font-weight: 700; color: var(--accent);
+}
+.step h3 { font-size: 0.975rem; margin-bottom: 0.5rem; }
+.step p { font-size: 0.85rem; color: var(--text-2); line-height: 1.6; }
+
+/* ============================================================
+   INGREDIENTS
+============================================================ */
+.ingredients-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem; align-items: center;
+  margin-top: 3rem;
+}
+.ingredient-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--rl);
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1rem;
+  display: flex; gap: 1rem; align-items: flex-start;
+}
+.i-dot {
+  width: 9px; height: 9px; border-radius: 50%;
+  background: var(--accent); flex-shrink: 0;
+  margin-top: 7px;
+}
+.i-name {
+  font-family: var(--mono); font-size: 0.72rem;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--accent); margin-bottom: 0.375rem;
+}
+.i-desc { font-size: 0.875rem; color: var(--text-2); line-height: 1.6; }
+
+.badges {
+  display: flex; flex-wrap: wrap; gap: 0.5rem;
+  margin-top: 1.75rem;
+}
+.badge {
+  background: var(--accent-lt); color: var(--accent);
+  font-family: var(--mono); font-size: 0.64rem;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  padding: 0.35rem 0.8rem; border-radius: 2px; font-weight: 700;
+}
+
+.purity-ring {
+  width: 270px; height: 270px; border-radius: 50%;
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  position: relative;
+}
+.purity-ring::before {
+  content: '';
+  position: absolute; inset: 14px; border-radius: 50%;
+  border: 1px dashed var(--accent-lt);
+}
+.ring-label {
+  font-family: var(--mono); font-size: 0.62rem;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--text-3); margin-bottom: 0.5rem;
+  position: relative; z-index:1;
+}
+.ring-value {
+  font-family: var(--display); font-size: 3.5rem;
+  font-weight: 700; color: var(--accent); line-height: 1;
+  position: relative; z-index:1;
+}
+.ring-sub {
+  font-size: 0.75rem; color: var(--text-2);
+  text-align: center; max-width: 140px;
+  margin-top: 0.3rem; line-height: 1.4;
+  position: relative; z-index:1;
+}
+.purity-center { display:flex; flex-direction:column; align-items:center; }
+
+/* ============================================================
+   REVIEWS
+============================================================ */
+.reviews-bg { background: var(--bg-alt); }
+.reviews-header {
+  display: flex; align-items: flex-end;
+  justify-content: space-between; gap: 1.5rem;
+  margin-bottom: 2.5rem; flex-wrap: wrap;
+}
+.rating-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--rl);
+  padding: 1.25rem 2rem;
+  display: flex; align-items: center; gap: 1.25rem;
+  flex-shrink: 0;
+}
+.rating-num {
+  font-family: var(--display); font-size: 3.25rem;
+  font-weight: 700; line-height: 1;
+}
+.rating-detail { font-size: 0.78rem; color: var(--text-2); margin-top: 0.25rem; }
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 1.25rem;
+}
+.review-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--rl);
+  padding: 1.75rem;
+}
+.review-stars { color: var(--star); font-size: 0.875rem; margin-bottom: 0.75rem; }
+.review-title {
+  font-family: var(--display); font-size: 1.05rem;
+  font-weight: 700; margin-bottom: 0.75rem; line-height: 1.3;
+}
+.review-body {
+  font-size: 0.875rem; color: var(--text-2);
+  line-height: 1.75; font-style: italic;
+}
+.review-meta {
+  margin-top: 1.25rem; padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  display: flex; justify-content: space-between;
+  align-items: center;
+  font-size: 0.72rem; color: var(--text-3);
+  font-family: var(--mono); letter-spacing: 0.05em;
+}
+.verified { color: var(--accent); }
+.helpful { color: var(--text-3); }
+
+/* ============================================================
+   IMAGE GALLERY
+============================================================ */
+.gallery-strip {
+  padding: clamp(2.5rem,6vw,4.5rem) clamp(1rem,5vw,4rem);
+  background: var(--bg);
+}
+.gallery-label { margin-bottom: 1.75rem; }
+.gallery-scroll {
+  display: flex; gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 0.75rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+.gallery-scroll::-webkit-scrollbar { height: 4px; }
+.gallery-scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+.gallery-thumb {
+  flex: 0 0 220px;
+  scroll-snap-align: start;
+  border: 1px solid var(--border);
+  border-radius: var(--rl);
+  overflow: hidden;
+  background: var(--surface);
+  transition: transform 0.22s, box-shadow 0.22s;
+  cursor: pointer;
+}
+.gallery-thumb:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.1); }
+.gallery-thumb img {
+  width: 100%; height: 220px;
+  object-fit: contain;
+  padding: 1rem;
+}
+
+/* ============================================================
+   GUARANTEE STRIP
+============================================================ */
+.guarantee-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.guarantee-item {
+  padding: 2rem 1.5rem;
+  text-align: center;
+  border-right: 1px solid var(--border);
+}
+.guarantee-item:last-child { border-right: none; }
+.g-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+.g-title {
+  font-family: var(--display); font-weight: 700;
+  font-size: 0.975rem; margin-bottom: 0.375rem;
+}
+.g-sub { font-size: 0.8rem; color: var(--text-2); line-height: 1.5; }
+
+/* ============================================================
+   FAQ
+============================================================ */
+.faq-inner { max-width: 720px; margin-top: 2.5rem; }
+details {
+  border-bottom: 1px solid var(--border);
+}
+summary {
+  font-family: var(--display); font-weight: 700;
+  font-size: 1rem; padding: 1.25rem 0;
+  cursor: pointer; list-style: none;
+  display: flex; justify-content: space-between;
+  align-items: center; gap: 1rem;
+  color: var(--text);
+}
+summary::-webkit-details-marker { display: none; }
+summary::after {
+  content: '+'; font-family: var(--body);
+  font-size: 1.25rem; font-weight: 300;
+  color: var(--accent); flex-shrink: 0;
+  transition: transform 0.2s;
+}
+details[open] summary::after { transform: rotate(45deg); }
+.faq-answer {
+  font-size: 0.9rem; color: var(--text-2);
+  line-height: 1.75; padding-bottom: 1.25rem;
+}
+
+/* ============================================================
+   FINAL CTA
+============================================================ */
+.final-cta {
+  background: var(--accent); color: #fff;
+  text-align: center;
+  padding: clamp(4rem, 10vw, 8rem) clamp(1rem, 5vw, 4rem);
+  position: relative; overflow: hidden;
+}
+.cta-blob {
+  position: absolute;
+  border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;
+  background: rgba(255,255,255,0.06);
+  animation: morph 16s ease-in-out infinite;
+  pointer-events: none;
+}
+.cta-blob-1 { width: 500px; height: 500px; top: -40%; left: -10%; }
+.cta-blob-2 { width: 340px; height: 340px; bottom: -30%; right: -5%; animation-delay: -6s; }
+@media (prefers-reduced-motion: reduce) { .cta-blob { animation: none; } }
+
+.final-cta h2 {
+  color: #fff; margin-bottom: 1rem;
+  position: relative; z-index: 1;
+}
+.final-cta p {
+  color: rgba(255,255,255,0.8); font-size: 1.1rem;
+  max-width: 520px; margin: 0 auto 2.5rem;
+  line-height: 1.75; position: relative; z-index: 1;
+}
+.btn-white {
+  background: #fff; color: var(--accent);
+  border: none; padding: 1rem 2.5rem;
+  border-radius: var(--r);
+  font-family: var(--body); font-size: 1.05rem; font-weight: 700;
+  cursor: pointer; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  transition: all 0.2s;
+  position: relative; z-index: 1;
+  letter-spacing: 0.02em;
+}
+.btn-white:hover {
+  background: #F0F0F0;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.2);
+}
+.cta-sub {
+  margin-top: 1.5rem;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.55);
+  position: relative; z-index: 1;
+}
+
+/* ============================================================
+   FOOTER
+============================================================ */
+footer {
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border);
+  padding: 2rem clamp(1rem, 5vw, 4rem);
+  display: flex; align-items: flex-start;
+  justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;
+}
+.footer-brand {
+  font-family: var(--display); font-size: 1.1rem;
+  font-weight: 700; color: var(--accent);
+  margin-bottom: 0.375rem;
+}
+.footer-brand span { color: var(--warm); }
+footer p { font-size: 0.78rem; color: var(--text-3); max-width: 400px; line-height: 1.6; }
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+@media (max-width: 820px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    min-height: auto;
+    padding-top: 3rem; padding-bottom: 3rem;
+  }
+  .eyebrow { justify-content: center; }
+  .hero-sub { max-width: 100%; }
+  .cta-row { justify-content: center; }
+  .hero-rating { justify-content: center; }
+  .hero-visual { display: none; }
+
+  .how-steps { grid-template-columns: 1fr; }
+  .how-steps::before { display: none; }
+  .ingredients-layout { grid-template-columns: 1fr; gap: 2rem; }
+  .purity-ring { display: none; }
+  .reviews-header { flex-direction: column; align-items: flex-start; }
+  .proof-sep { display: none; }
+  .nav-links { display: none; }
+  .guarantee-item { border-right: none; border-bottom: 1px solid var(--border); }
+  .guarantee-item:last-child { border-bottom: none; }
+}
+
+/* ============================================================
+   SCROLL REVEAL
+============================================================ */
+.reveal {
+  opacity: 0; transform: translateY(22px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAV
+============================================================ -->
+<nav>
+  <a class="nav-brand" href="#">O <span>Positiv</span> URO</a>
+  <ul class="nav-links">
+    <li><a href="#benefits">Benefits</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+  </ul>
+  <a class="nav-cta" href="#buy">Shop Now →</a>
+</nav>
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section class="hero">
+  <div class="hero-blob"></div>
+  <div class="hero-blob-2"></div>
+
+  <div class="hero-content">
+    <div class="eyebrow">Vaginal Probiotic · Clinically Studied</div>
+    <h1>Balance <em>Restored.</em><br>Confidence Reclaimed.</h1>
+    <p class="hero-sub">URO delivers a proprietary Lactobacillus probiotic blend and XOS Prebiotics to support healthy vaginal pH, odor, and flora — so you can stop worrying and start living fully.</p>
+    <div class="cta-row">
+      <a class="btn-primary" href="#buy">Shop URO Now →</a>
+      <a class="btn-ghost" href="#how">How it works</a>
+    </div>
+    <div class="hero-rating">
+      <span class="stars">★★★★★</span>
+      <span><strong>4.6</strong> · 36,602 verified reviews</span>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="product-pod">
+      <div class="pod-badge">#1 Best Seller</div>
+      <img
+        src="https://m.media-amazon.com/images/I/51L1a4u7LnL._SL1500_.jpg"
+        alt="O Positiv URO Vaginal Probiotics bottle — 60 capsules"
+        width="320" height="320"
+      >
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PROOF STRIP
+============================================================ -->
+<div class="proof-strip">
+  <div class="proof-item">
+    <div>
+      <strong>4.6 / 5</strong>
+      <small>36,602 Reviews</small>
+    </div>
+  </div>
+  <div class="proof-sep"></div>
+  <div class="proof-item">
+    <div>
+      <strong>#1 Best Seller</strong>
+      <small>Women's Health Care</small>
+    </div>
+  </div>
+  <div class="proof-sep"></div>
+  <div class="proof-item">
+    <div>
+      <strong>Results in 7 Days</strong>
+      <small>Full benefits in 2 months</small>
+    </div>
+  </div>
+  <div class="proof-sep"></div>
+  <div class="proof-item">
+    <div>
+      <strong>30-Day Guarantee</strong>
+      <small>Love it or we make it right</small>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     PROBLEM
+============================================================ -->
+<section class="section problem-bg reveal">
+  <div class="problem-inner">
+    <div class="section-label">Sound Familiar?</div>
+    <h2>You deserve to feel like <em>yourself</em> again</h2>
+    <p>Millions of women deal silently with vaginal imbalance. It's more common than anyone talks about — and it is not your fault. The exhausting cycle of doctor visits, short-term fixes, and products that don't last ends here.</p>
+    <div class="problem-grid">
+      <div class="problem-chip">Unwanted odor that won't go away</div>
+      <div class="problem-chip">Recurring BV or yeast disruption</div>
+      <div class="problem-chip">pH imbalance after intimacy</div>
+      <div class="problem-chip">Discharge that doesn't feel right</div>
+      <div class="problem-chip">Constant self-consciousness</div>
+      <div class="problem-chip">Tried everything — nothing sticks</div>
+    </div>
+    <p><strong>URO targets the root cause:</strong> an imbalanced vaginal microbiome. By repopulating your flora with clinically-studied Lactobacillus strains, it works from the inside — not just masking symptoms, but rebuilding the conditions that keep you naturally balanced.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     BENEFITS
+============================================================ -->
+<section class="section reveal" id="benefits">
+  <div class="section-label">What URO Does</div>
+  <h2>Five ways URO supports your body</h2>
+  <div class="benefits-grid">
+    <div class="benefit-card">
+      <div class="benefit-icon">🌸</div>
+      <h3>Supports Healthy Vaginal Odor</h3>
+      <p>Restores the beneficial bacteria that naturally keep odor-causing microbes in check — working from within, not just covering things up.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">⚖️</div>
+      <h3>Balances Vaginal pH</h3>
+      <p>The V-Positiv Probiotic Blend combined with XOS Prebiotics helps maintain the slightly acidic environment your vagina needs to thrive.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">🛡️</div>
+      <h3>Supports Yeast Balance</h3>
+      <p>A healthy flora is your body's natural defense against overgrowth. URO gives that flora exactly what it needs to do its job.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">✨</div>
+      <h3>Promotes Healthy Flora</h3>
+      <p>Repopulates your vaginal microbiome with the Lactobacillus strains that are supposed to be there — supporting your body's natural balance.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">⚡</div>
+      <h3>Feel Results Within 7 Days</h3>
+      <p>Many women notice a real difference in the first week. Full benefits build over 2 months of daily use as your microbiome rebuilds itself.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     HOW IT WORKS
+============================================================ -->
+<section class="section how-bg reveal" id="how">
+  <div class="section-label">The Method</div>
+  <h2>Simple. Daily. Consistent.</h2>
+  <div class="how-steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h3>Take 2 Capsules Daily</h3>
+      <p>With water, every day — morning or night. Consistency is what makes the lasting difference. The capsule is easy to swallow, unflavored, gentle on your stomach.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h3>Flora Begins to Shift</h3>
+      <p>The Lactobacillus strains colonize your vaginal microbiome, crowding out harmful bacteria and establishing the acidic conditions that support your health.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h3>Feel the Difference</h3>
+      <p>Many women notice change within 7 days — particularly odor and discharge. Give it 2 full months for your body to rebuild a stable, resilient microbiome.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     INGREDIENTS
+============================================================ -->
+<section class="section reveal">
+  <div class="section-label">Inside Every Capsule</div>
+  <h2>Formulated with intention</h2>
+  <div class="ingredients-layout">
+    <div>
+      <div class="ingredient-item">
+        <div class="i-dot"></div>
+        <div>
+          <div class="i-name">V-Positiv Probiotic Blend</div>
+          <div class="i-desc">A proprietary combination of clinically-studied Lactobacillus strains — the exact bacteria that naturally dominate a healthy vaginal microbiome. Selected for survival, colonization, and efficacy.</div>
+        </div>
+      </div>
+      <div class="ingredient-item">
+        <div class="i-dot"></div>
+        <div>
+          <div class="i-name">XOS Prebiotics (Xylooligosaccharides)</div>
+          <div class="i-desc">Feed and sustain the probiotic strains, helping them survive transit and colonize effectively. Prebiotics are the fuel the probiotic engine runs on — most vaginal supplements skip this step. URO doesn't.</div>
+        </div>
+      </div>
+      <div class="badges">
+        <span class="badge">Vegan</span>
+        <span class="badge">Gluten-Free</span>
+        <span class="badge">Non-GMO</span>
+        <span class="badge">Cruelty Free</span>
+        <span class="badge">3rd Party Tested</span>
+        <span class="badge">Unflavored</span>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:1rem;">
+      <img
+        src="https://m.media-amazon.com/images/I/41th5INJj+L._SL1500_.jpg"
+        alt="URO supplement facts and ingredient label"
+        style="width:100%;max-width:340px;border-radius:var(--rl);border:1px solid var(--border);background:var(--surface);padding:1rem;object-fit:contain;"
+      >
+      <div style="display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center;">
+        <span class="badge">Third-Party Verified</span>
+        <span class="badge">No Fillers</span>
+        <span class="badge">100% Clean</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     REVIEWS
+============================================================ -->
+<section class="section reviews-bg reveal" id="reviews">
+  <div class="reviews-header">
+    <div>
+      <div class="section-label">Real Women, Real Results</div>
+      <h2>36,602 women can't be wrong</h2>
+    </div>
+    <div class="rating-box">
+      <div class="rating-num">4.6</div>
+      <div>
+        <div class="stars" style="color:var(--star);font-size:1.1rem;">★★★★★</div>
+        <div class="rating-detail">82% five-star ratings<br>36,602 global reviews</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-title">Gut problems gone. BV gone. All of it.</div>
+      <div class="review-body">"I had BV for a full year with no relief. Two days after taking this, my heavy discharge was totally gone. Three days in, odor was non-existent. By day four, I was pooping daily. Within a week — the issue was fully resolved. I am now a month in, and will be a lifelong buyer. This is THE most effective supplement I have ever taken in my life."</div>
+      <div class="review-meta">
+        <span>TLK · June 2026</span>
+        <span class="verified">✓ Verified Purchase</span>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-title">It worked in a single day. I cried.</div>
+      <div class="review-body">"I've dealt with a persistent odor issue for years. My coworkers were spraying air freshener — I was beyond embarrassed. I saw URO and decided to try it. Let me tell you — This. Stuff. Works. It only took a day for me to notice no smell. I was so self-conscious before. Now that's no longer a concern, and it did not cause a yeast infection or any irritation."</div>
+      <div class="review-meta">
+        <span>Mama of a Yorkie · Nov 2024</span>
+        <span class="verified">✓ Verified Purchase</span>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-title">20 years of issues — gone in a week</div>
+      <div class="review-body">"I am beyond surprised. Just within this first week: I have a really nice scent, no more pain during sex, and I feel more like myself than I have in decades. I've seen specialist after specialist. I tried this as a last resort. The reviews were actually true. I am so glad I finally didn't waste more money — this is definitely a keeper."</div>
+      <div class="review-meta">
+        <span>Noel OBryan · Dec 2024</span>
+        <span class="verified">✓ Verified Purchase</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     IMAGE GALLERY
+============================================================ -->
+<section class="gallery-strip reveal">
+  <div class="section-label gallery-label">Product Gallery</div>
+  <div class="gallery-scroll">
+    <div class="gallery-thumb">
+      <img src="https://m.media-amazon.com/images/I/51L1a4u7LnL._SL1500_.jpg" alt="URO Vaginal Probiotics — front of bottle">
+    </div>
+    <div class="gallery-thumb">
+      <img src="https://m.media-amazon.com/images/I/41Bj7UNMcZL._SL1500_.jpg" alt="URO Vaginal Probiotics — packaging detail">
+    </div>
+    <div class="gallery-thumb">
+      <img src="https://m.media-amazon.com/images/I/41th5INJj+L._SL1500_.jpg" alt="URO Vaginal Probiotics — supplement facts">
+    </div>
+    <div class="gallery-thumb">
+      <img src="https://m.media-amazon.com/images/I/41OAWOmrDsL._SL1500_.jpg" alt="URO Vaginal Probiotics — benefits graphic">
+    </div>
+    <div class="gallery-thumb">
+      <img src="https://m.media-amazon.com/images/I/41epeUcpptL._SL1500_.jpg" alt="URO Vaginal Probiotics — ingredient detail">
+    </div>
+    <div class="gallery-thumb">
+      <img src="https://m.media-amazon.com/images/I/41AUCVNd64L._SL1500_.jpg" alt="URO Vaginal Probiotics — lifestyle image">
+    </div>
+    <div class="gallery-thumb">
+      <img src="https://m.media-amazon.com/images/I/51iGt0I9MPL._SL1500_.jpg" alt="URO Vaginal Probiotics — comparison chart">
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     GUARANTEE STRIP
+============================================================ -->
+<div class="guarantee-strip reveal">
+  <div class="guarantee-item">
+    <div class="g-icon">🔬</div>
+    <div class="g-title">Clinically Studied</div>
+    <div class="g-sub">Lactobacillus strains backed by research into vaginal microbiome health</div>
+  </div>
+  <div class="guarantee-item">
+    <div class="g-icon">✓</div>
+    <div class="g-title">Third-Party Tested</div>
+    <div class="g-sub">Every batch independently verified for purity and potency</div>
+  </div>
+  <div class="guarantee-item">
+    <div class="g-icon">🌿</div>
+    <div class="g-title">Clean Formula</div>
+    <div class="g-sub">Vegan, gluten-free, non-GMO, cruelty-free — only the good stuff</div>
+  </div>
+  <div class="guarantee-item">
+    <div class="g-icon">💛</div>
+    <div class="g-title">30-Day Guarantee</div>
+    <div class="g-sub">Don't love it within 30 days? O Positiv will make it right</div>
+  </div>
+</div>
+
+<!-- ============================================================
+     FAQ
+============================================================ -->
+<section class="section reveal">
+  <div class="section-label">Common Questions</div>
+  <h2>What women ask most</h2>
+  <div class="faq-inner">
+    <details>
+      <summary>How quickly will I see results?</summary>
+      <p class="faq-answer">Many women notice a difference within 7 days — particularly with odor and discharge. Full benefits build over 2 months of consistent daily use as your microbiome rebalances and stabilizes. Individual results vary, but the majority of reviewers report noticeable improvement in the first week.</p>
+    </details>
+    <details>
+      <summary>How do I take URO?</summary>
+      <p class="faq-answer">Take 2 capsules per day with water, every day. Morning or evening — whatever fits your routine. Consistency matters far more than timing. The capsules are unflavored and easy to swallow.</p>
+    </details>
+    <details>
+      <summary>Is URO safe for long-term use?</summary>
+      <p class="faq-answer">Yes. URO contains Lactobacillus strains that naturally belong in a healthy vaginal microbiome. It is vegan, gluten-free, non-GMO, and third-party tested. Thousands of women take it daily as a long-term routine. As always, consult your physician if you have specific health concerns.</p>
+    </details>
+    <details>
+      <summary>Will URO upset my stomach?</summary>
+      <p class="faq-answer">Most women tolerate URO well — reviewers commonly report it is gentle on the stomach with no aftertaste. A small number experience mild initial digestive adjustment as the probiotic strains establish themselves. This typically settles within the first few days.</p>
+    </details>
+    <details>
+      <summary>Can I take URO with other supplements or medications?</summary>
+      <p class="faq-answer">Generally yes, but we recommend consulting your physician before combining any supplements with prescription medications, particularly antibiotics — which can reduce probiotic effectiveness if taken simultaneously.</p>
+    </details>
+    <details>
+      <summary>What if it doesn't work for me?</summary>
+      <p class="faq-answer">O Positiv stands behind URO with a 30-day happiness commitment. If you don't love it, they'll be happy to help — no lengthy return process, no hassle.</p>
+    </details>
+  </div>
+</section>
+
+<!-- ============================================================
+     FINAL CTA
+============================================================ -->
+<section class="final-cta" id="buy">
+  <div class="cta-blob cta-blob-1"></div>
+  <div class="cta-blob cta-blob-2"></div>
+  <h2>Ready to feel like yourself again?</h2>
+  <p>Join over 36,000 women who've reclaimed their confidence, their freshness, and their peace of mind with URO. Results in as little as 7 days — guaranteed.</p>
+  <a class="btn-white" href="https://www.amazon.com/dp/B0D5FZGY8W" target="_blank" rel="noopener noreferrer">
+    Get URO on Amazon →
+  </a>
+  <p class="cta-sub">30-Day Happiness Guarantee · Free Shipping on Qualified Orders · 36,602 Five-Star Reviews</p>
+</section>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer>
+  <div>
+    <div class="footer-brand">O <span>Positiv</span> URO</div>
+    <p>Vaginal Probiotic Supplement · 60 Capsules · 1 Month Supply</p>
+  </div>
+  <p>*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease. Consult your physician prior to use.</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
