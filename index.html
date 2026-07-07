@@ -1173,6 +1173,152 @@ footer p { font-size: 0.78rem; color: var(--text-3); max-width: 400px; line-heig
   }, { threshold: 0.08 });
 
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // ── Social proof notifications ──────────────────────────────
+  const proofs = [
+    { name: 'Jasmine', city: 'Atlanta, GA',      time: '2 minutes ago'  },
+    { name: 'Tiffany', city: 'Houston, TX',      time: '5 minutes ago'  },
+    { name: 'Monique', city: 'Chicago, IL',      time: '8 minutes ago'  },
+    { name: 'Aaliyah', city: 'Brooklyn, NY',     time: '11 minutes ago' },
+    { name: 'Keisha',  city: 'Detroit, MI',      time: '14 minutes ago' },
+    { name: 'Destiny', city: 'Dallas, TX',       time: 'Just now'       },
+    { name: 'Brianna', city: 'Miami, FL',        time: '3 minutes ago'  },
+    { name: 'Latoya',  city: 'Philadelphia, PA', time: '6 minutes ago'  },
+    { name: 'Shanice', city: 'Los Angeles, CA',  time: '9 minutes ago'  },
+    { name: 'Crystal', city: 'Charlotte, NC',    time: '12 minutes ago' },
+    { name: 'Amber',   city: 'Memphis, TN',      time: 'Just now'       },
+    { name: 'Nadia',   city: 'Baltimore, MD',    time: '4 minutes ago'  },
+    { name: 'Simone',  city: 'Columbus, OH',     time: '7 minutes ago'  },
+    { name: 'Imani',   city: 'Washington, DC',   time: '10 minutes ago' },
+    { name: 'Tierra',  city: 'Jacksonville, FL', time: '15 minutes ago' },
+  ];
+
+  // Build the popup element
+  const popup = document.createElement('div');
+  popup.id = 'sp-popup';
+  popup.innerHTML = `
+    <div id="sp-avatar"></div>
+    <div id="sp-body">
+      <div id="sp-name"></div>
+      <div id="sp-action">just purchased URO Probiotics</div>
+      <div id="sp-meta"><span id="sp-city"></span> · <span id="sp-time"></span></div>
+    </div>
+    <button id="sp-close" aria-label="Close">×</button>
+  `;
+  document.body.appendChild(popup);
+
+  // Inject styles
+  const style = document.createElement('style');
+  style.textContent = `
+    #sp-popup {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 0.875rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.875rem 1.125rem;
+      width: 300px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.14), 0 2px 8px rgba(0,0,0,0.08);
+      transform: translateY(120%);
+      opacity: 0;
+      transition: transform 0.42s cubic-bezier(.22,.68,0,1.2), opacity 0.35s ease;
+      pointer-events: none;
+    }
+    #sp-popup.sp-show {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #sp-avatar {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: var(--accent-lt);
+      color: var(--accent);
+      font-family: var(--display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    #sp-body { flex: 1; min-width: 0; }
+    #sp-name {
+      font-family: var(--body);
+      font-weight: 700;
+      font-size: 0.875rem;
+      color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    #sp-action {
+      font-size: 0.8rem;
+      color: var(--text-2);
+      margin: 1px 0;
+    }
+    #sp-meta {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.04em;
+      color: var(--text-3);
+    }
+    #sp-close {
+      background: none;
+      border: none;
+      color: var(--text-3);
+      font-size: 1.1rem;
+      cursor: pointer;
+      line-height: 1;
+      padding: 0 0 0 0.25rem;
+      align-self: flex-start;
+      flex-shrink: 0;
+      transition: color 0.2s;
+    }
+    #sp-close:hover { color: var(--text); }
+    @media (max-width: 420px) {
+      #sp-popup { width: calc(100vw - 2rem); left: 1rem; bottom: 1rem; }
+    }
+  `;
+  document.head.appendChild(style);
+
+  let spIndex = 0;
+  let spTimer = null;
+  let dismissed = false;
+
+  document.getElementById('sp-close').addEventListener('click', () => {
+    dismissed = true;
+    popup.classList.remove('sp-show');
+    clearTimeout(spTimer);
+  });
+
+  function showNext() {
+    if (dismissed) return;
+    const p = proofs[spIndex % proofs.length];
+    spIndex++;
+
+    document.getElementById('sp-avatar').textContent = p.name[0];
+    document.getElementById('sp-name').textContent = p.name;
+    document.getElementById('sp-city').textContent = p.city;
+    document.getElementById('sp-time').textContent = p.time;
+
+    popup.classList.add('sp-show');
+
+    // Hide after 4.5s, then show next after a gap of 6–10s
+    spTimer = setTimeout(() => {
+      popup.classList.remove('sp-show');
+      const gap = 6000 + Math.random() * 4000;
+      spTimer = setTimeout(showNext, gap);
+    }, 4500);
+  }
+
+  // First popup appears after 4s on page
+  setTimeout(showNext, 4000);
 </script>
 </body>
 </html>
