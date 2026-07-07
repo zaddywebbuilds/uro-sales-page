@@ -64,6 +64,136 @@
 }
 
 /* ============================================================
+   DESIGN ENHANCEMENTS
+============================================================ */
+
+/* 1. Scroll progress bar */
+#scroll-progress {
+  position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+  background: linear-gradient(90deg, var(--accent), var(--warm));
+  z-index: 9999; transition: width 0.1s linear;
+  border-radius: 0 2px 2px 0;
+}
+
+/* 2. Gradient text utility */
+.grad-text {
+  background: linear-gradient(125deg, var(--accent) 0%, var(--warm) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 3. CTA button pulse glow */
+@keyframes btn-pulse {
+  0%, 100% { box-shadow: 0 6px 20px rgba(217,111,64,0.35), 0 0 0 0 rgba(217,111,64,0.3); }
+  50%       { box-shadow: 0 6px 20px rgba(217,111,64,0.35), 0 0 0 10px rgba(217,111,64,0); }
+}
+.btn-primary { animation: btn-pulse 2.4s ease-in-out infinite; }
+.btn-primary:hover { animation: none; }
+
+/* 4. Image hover zoom — on containers with overflow:hidden */
+.benefit-card .benefit-img,
+.ba-card img,
+.lifestyle-img img,
+.prob-img-main video {
+  transition: transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.benefit-card:hover .benefit-img { transform: scale(1.06); }
+.ba-card:hover img { transform: scale(1.04); }
+.lifestyle-img:hover img { transform: scale(1.03); }
+
+/* 5. Staggered benefit card entrance */
+.benefits-grid .benefit-card {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.benefits-grid .benefit-card.visible {
+  opacity: 1; transform: translateY(0);
+}
+.benefits-grid .benefit-card:nth-child(1) { transition-delay: 0s; }
+.benefits-grid .benefit-card:nth-child(2) { transition-delay: 0.1s; }
+.benefits-grid .benefit-card:nth-child(3) { transition-delay: 0.2s; }
+.benefits-grid .benefit-card:nth-child(4) { transition-delay: 0.3s; }
+.benefits-grid .benefit-card:nth-child(5) { transition-delay: 0.4s; }
+
+/* 6. Decorative quote mark */
+.quote-decor {
+  font-family: var(--display);
+  font-size: 5rem; line-height: 0.6;
+  color: var(--accent-lt);
+  display: block; margin-bottom: 0.25rem;
+  user-select: none; pointer-events: none;
+}
+
+/* 7. Shimmer sweep on proof strip strong numbers */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.proof-item strong {
+  background: linear-gradient(
+    90deg,
+    #fff 0%, #fff 40%,
+    rgba(255,255,255,0.4) 50%,
+    #fff 60%, #fff 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: proof-blink 3.2s ease-in-out infinite,
+             shimmer 3.2s linear infinite;
+}
+
+/* 8. Grain texture on dark-bg sections */
+.lifestyle-bg::before,
+.how-bg::before,
+.final-cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  background-size: 200px;
+  pointer-events: none; z-index: 0; opacity: 0.5;
+}
+.lifestyle-bg > *, .how-bg > *, .final-cta > * { position: relative; z-index: 1; }
+
+/* 9. Section wave divider */
+.wave-divider {
+  display: block; width: 100%; overflow: hidden;
+  line-height: 0; margin-bottom: -2px;
+}
+.wave-divider svg { display: block; width: 100%; }
+
+/* 10. Floating label pill on images */
+.img-pill {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  background: var(--accent); color: #fff;
+  font-family: var(--mono); font-size: 0.6rem;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.3rem 0.7rem; border-radius: 20px;
+  font-weight: 700;
+}
+
+/* 11. Highlight callout strip */
+.callout-strip {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+  color: #fff; text-align: center;
+  padding: 1rem clamp(1rem,5vw,4rem);
+  font-family: var(--display); font-size: clamp(1rem,2.5vw,1.3rem);
+  font-style: italic; letter-spacing: -0.01em;
+}
+.callout-strip em { color: var(--warm-lt); font-style: normal; }
+
+/* 12. Stat number styling for counters */
+.stat-num[data-target] { font-variant-numeric: tabular-nums; }
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-primary { animation: none; }
+  .benefits-grid .benefit-card { opacity: 1; transform: none; transition: none; }
+  .proof-item strong { animation: none; -webkit-text-fill-color: #fff; background: none; }
+}
+
+/* ============================================================
    RESET & BASE
 ============================================================ */
 *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
@@ -1511,6 +1641,8 @@ footer p { font-size: 0.78rem; color: var(--text-3); max-width: 400px; line-heig
 </style>
 </head>
 <body>
+<!-- Scroll progress bar -->
+<div id="scroll-progress"></div>
 
 <!-- ============================================================
      NAV
@@ -1534,7 +1666,7 @@ footer p { font-size: 0.78rem; color: var(--text-3); max-width: 400px; line-heig
 
   <div class="hero-content">
     <div class="eyebrow">Vaginal Probiotic · Clinically Studied</div>
-    <h1>Sister, That Smell<br>Ends <em>Today.</em></h1>
+    <h1>Sister, That Smell<br>Ends <em class="grad-text">Today.</em></h1>
     <p class="hero-sub">URO is the probiotic capsule that fixes the problem from inside — no more daily panty liners, no more embarrassment at work or church, no more pretending everything is fine. Real results in as little as 7 days.</p>
     <div class="cta-row">
       <a class="btn-primary" href="#buy">I Want URO Now →</a>
@@ -1586,6 +1718,13 @@ footer p { font-size: 0.78rem; color: var(--text-3); max-width: 400px; line-heig
     </div>
   </div>
 </section>
+
+<!-- Wave divider: hero → proof strip -->
+<div class="wave-divider" style="background:var(--bg);">
+  <svg viewBox="0 0 1440 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,32 C240,0 480,48 720,24 C960,0 1200,48 1440,16 L1440,48 L0,48 Z" fill="var(--accent)"/>
+  </svg>
+</div>
 
 <!-- ============================================================
      PROOF STRIP
@@ -1811,15 +1950,15 @@ footer p { font-size: 0.78rem; color: var(--text-3); max-width: 400px; line-heig
       <p style="color:var(--text-2);line-height:1.8;margin-bottom:1.5rem;">You have tried the creams from the pharmacy. You have tried the herbs your aunty recommended. You have tried washing a certain way, avoiding certain foods. But the problem keeps coming back — because you were treating the surface, not the source. URO goes inside and fixes what caused the problem in the first place.</p>
       <div class="lifestyle-stats">
         <div class="stat-item">
-          <div class="stat-num">82%</div>
+          <div class="stat-num" data-target="82" data-suffix="%">82%</div>
           <div class="stat-label">gave 5 stars out of 5</div>
         </div>
         <div class="stat-item">
-          <div class="stat-num">7 days</div>
+          <div class="stat-num" data-target="7" data-suffix=" days">7 days</div>
           <div class="stat-label">many women feel results</div>
         </div>
         <div class="stat-item">
-          <div class="stat-num">36K+</div>
+          <div class="stat-num" data-target="36" data-suffix="K+">36K+</div>
           <div class="stat-label">women already transformed</div>
         </div>
       </div>
@@ -1859,6 +1998,11 @@ footer p { font-size: 0.78rem; color: var(--text-3); max-width: 400px; line-heig
     <p>No more checking every time you stand up. No more fear when someone sits close. No more shame. Just you — clean, balanced, confident, and free to enjoy your life fully.</p>
     <a class="btn-primary" href="#buy">I Want This For Myself →</a>
   </div>
+</div>
+
+<!-- Callout strip — emotional hook between transformation and mechanism -->
+<div class="callout-strip">
+  "The bacteria that protect you can be restored. That is not a promise — <em>that is science.</em>"
 </div>
 
 <!-- FB COMMENT #5 — after before/after emotional peak -->
@@ -2226,6 +2370,7 @@ footer p { font-size: 0.78rem; color: var(--text-3); max-width: 400px; line-heig
       <div>
         <div class="doctor-name">Dr. Amara Osei-Bonsu</div>
         <div class="doctor-creds">OB-GYN · Women's Health Specialist · 14 Years Practice</div>
+        <span class="quote-decor">"</span>
         <div class="doctor-quote">"Bacterial vaginosis and recurrent yeast infections are among the most common complaints I see from African women — and the most undertreated. Many patients are stuck in an antibiotic cycle that never fully resolves the root imbalance. Probiotic supplementation with clinically studied Lactobacillus strains like those in URO is consistent with what current research supports for restoring vaginal flora. I recommend women discuss probiotic supplementation with their doctor as part of a long-term strategy."</div>
       </div>
     </div>
@@ -2493,6 +2638,49 @@ footer p { font-size: 0.78rem; color: var(--text-3); max-width: 400px; line-heig
 
   // First popup appears after 4s on page
   setTimeout(showNext, 4000);
+
+  // ── Scroll progress bar ──────────────────────────────────
+  const progressBar = document.getElementById('scroll-progress');
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    progressBar.style.width = (scrolled / total * 100) + '%';
+  }, { passive: true });
+
+  // ── Stat counter animation ───────────────────────────────
+  function animateCounter(el) {
+    const target = +el.dataset.target;
+    const suffix = el.dataset.suffix || '';
+    const duration = 1800;
+    const start = performance.now();
+    function step(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(ease * target) + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting && e.target.dataset.target) {
+        animateCounter(e.target);
+        counterObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.stat-num[data-target]').forEach(el => counterObserver.observe(el));
+
+  // ── Staggered benefit card entrance ─────────────────────
+  const cardObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        cardObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.benefits-grid .benefit-card').forEach(el => cardObserver.observe(el));
 
   // Hero video → product reveal on end
   const heroVid = document.getElementById('hero-vid');
