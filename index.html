@@ -605,7 +605,7 @@ h3 {
 }
 .evidence-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 0;
 }
 .evidence-item {
@@ -640,10 +640,18 @@ h3 {
 .evidence-footer strong { color: var(--text); }
 
 @media (max-width: 820px) {
+  .evidence-grid { grid-template-columns: repeat(3, 1fr); }
+  .evidence-item:nth-child(3) { border-right: none; }
+  .evidence-item:nth-child(4) { border-top: 1px solid var(--border); }
+  .evidence-item:nth-child(5) { border-top: 1px solid var(--border); border-right: none; }
+}
+@media (max-width: 480px) {
   .evidence-grid { grid-template-columns: repeat(2, 1fr); }
   .evidence-item:nth-child(2) { border-right: none; }
-  .evidence-item:nth-child(3) { border-top: 1px solid var(--border); }
-  .evidence-item:nth-child(4) { border-top: 1px solid var(--border); border-right: none; }
+  .evidence-item:nth-child(odd) { border-right: 1px solid var(--border); }
+  .evidence-item:nth-child(3),
+  .evidence-item:nth-child(4),
+  .evidence-item:nth-child(5) { border-top: 1px solid var(--border); }
 }
 
 /* ============================================================
@@ -1598,6 +1606,10 @@ footer p { font-size: 0.78rem; color: var(--text-3); max-width: 400px; line-heig
           <div class="evidence-item">
             <img src="images/discharge-fingers.png" alt="Stretchy abnormal discharge" loading="lazy" decoding="async">
             <div class="evidence-label">Stretchy, sticky discharge</div>
+          </div>
+          <div class="evidence-item">
+            <img src="images/discharge-types.png" alt="3 types of abnormal vaginal discharge on tissue" loading="lazy" decoding="async" style="object-position:center;">
+            <div class="evidence-label">3 types — do you recognise yours?</div>
           </div>
         </div>
         <div class="evidence-footer">
