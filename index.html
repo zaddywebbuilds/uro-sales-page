@@ -5,6 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>URO Vaginal Probiotics | O Positiv — Balance Restored</title>
 <link rel="preload" as="video" href="images/hero-intro.mp4" type="video/mp4">
+<link rel="preload" as="image" href="images/after-happy-1.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="images/after-happy-2.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="images/with-product.jpg">
+<link rel="preload" as="image" href="images/african-woman-crying.jpg">
+<link rel="preload" as="image" href="images/distressed-night.jpg">
+<link rel="preload" as="image" href="images/stressed-sitting.jpg">
 <style>
 /* ============================================================
    TOKENS
@@ -1697,7 +1703,7 @@ footer p { font-size: 0.78rem; color: var(--text-3); max-width: 400px; line-heig
       <!-- Center: intro video, then product image zooms in like it's being presented -->
       <div class="orbit-center">
         <video class="hero-vid" id="hero-vid" src="images/hero-intro.mp4"
-          autoplay muted playsinline
+          autoplay muted playsinline preload="auto"
           poster="images/with-product.jpg">
         </video>
         <!-- Product image reveals itself after women orbit -->
@@ -1710,22 +1716,22 @@ footer p { font-size: 0.78rem; color: var(--text-3); max-width: 400px; line-heig
 
       <!-- 6 women faces revolving in orbit around the center -->
       <div class="orbit-arm arm-1">
-        <img src="images/after-happy-1.jpg" alt="Happy URO customer" loading="lazy" decoding="async">
+        <img src="images/after-happy-1.jpg" alt="Happy URO customer" loading="eager" decoding="async" fetchpriority="high">
       </div>
       <div class="orbit-arm arm-2">
-        <img src="images/after-happy-2.jpg" alt="Happy URO customer" loading="lazy" decoding="async">
+        <img src="images/after-happy-2.jpg" alt="Happy URO customer" loading="eager" decoding="async" fetchpriority="high">
       </div>
       <div class="orbit-arm arm-3">
-        <img src="images/with-product.jpg" alt="Customer with URO" loading="lazy" decoding="async">
+        <img src="images/with-product.jpg" alt="Customer with URO" loading="eager" decoding="async">
       </div>
       <div class="orbit-arm arm-4">
-        <img src="images/african-woman-crying.jpg" alt="Before testimonial" loading="lazy" decoding="async">
+        <img src="images/african-woman-crying.jpg" alt="Before testimonial" loading="eager" decoding="async">
       </div>
       <div class="orbit-arm arm-5">
-        <img src="images/distressed-night.jpg" alt="Before testimonial" loading="lazy" decoding="async">
+        <img src="images/distressed-night.jpg" alt="Before testimonial" loading="eager" decoding="async">
       </div>
       <div class="orbit-arm arm-6">
-        <img src="images/stressed-sitting.jpg" alt="Before testimonial" loading="lazy" decoding="async">
+        <img src="images/stressed-sitting.jpg" alt="Before testimonial" loading="eager" decoding="async">
       </div>
 
     </div>
