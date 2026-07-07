@@ -309,6 +309,24 @@ h1 em { font-style: italic; color: var(--accent); }
 /* ============================================================
    PROOF STRIP
 ============================================================ */
+@keyframes proof-pop {
+  0%   { opacity: 0; transform: scale(0.6) translateY(12px); }
+  70%  { transform: scale(1.08) translateY(-2px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes proof-pulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.06); }
+}
+@keyframes proof-glow {
+  0%, 100% { text-shadow: 0 0 0px rgba(255,255,255,0); }
+  50%       { text-shadow: 0 0 14px rgba(255,255,255,0.55); }
+}
+@keyframes proof-float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-4px); }
+}
+
 .proof-strip {
   background: var(--accent); color: #fff;
   padding: 1.25rem clamp(1rem, 5vw, 4rem);
@@ -316,19 +334,45 @@ h1 em { font-style: italic; color: var(--accent); }
   justify-content: center;
   gap: clamp(1rem, 4vw, 3.5rem);
   flex-wrap: wrap;
+  overflow: hidden;
 }
 .proof-item {
   display: flex; align-items: center; gap: 0.6rem;
   font-size: 0.875rem;
+  opacity: 0;
+  animation: proof-pop 0.65s cubic-bezier(.22,.68,0,1.2) forwards;
 }
+.proof-item:nth-child(1) { animation-delay: 0.1s; }
+.proof-item:nth-child(3) { animation-delay: 0.25s; }
+.proof-item:nth-child(5) { animation-delay: 0.4s; }
+.proof-item:nth-child(7) { animation-delay: 0.55s; }
+
 .proof-item strong {
   font-family: var(--display); font-size: 1.2rem;
   font-weight: 700; line-height: 1;
+  display: inline-block;
+  animation: proof-pulse 2.8s ease-in-out infinite, proof-glow 2.8s ease-in-out infinite;
 }
+.proof-item:nth-child(1) strong { animation-delay: 0s; }
+.proof-item:nth-child(3) strong { animation-delay: 0.7s; }
+.proof-item:nth-child(5) strong { animation-delay: 1.4s; }
+.proof-item:nth-child(7) strong { animation-delay: 2.1s; }
+
 .proof-item small { display:block; font-size: 0.72rem; opacity: 0.75; }
 .proof-sep {
   width: 1px; height: 28px;
   background: rgba(255,255,255,0.28);
+  animation: proof-pop 0.5s ease forwards;
+  opacity: 0;
+}
+.proof-sep:nth-child(2) { animation-delay: 0.18s; }
+.proof-sep:nth-child(4) { animation-delay: 0.33s; }
+.proof-sep:nth-child(6) { animation-delay: 0.48s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .proof-item, .proof-item strong, .proof-sep {
+    animation: none; opacity: 1;
+  }
 }
 
 /* ============================================================
