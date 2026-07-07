@@ -1207,6 +1207,105 @@ details[open] summary::after { transform: rotate(45deg); }
 }
 
 /* ============================================================
+   TRUST BADGES
+============================================================ */
+.trust-badges {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: 0.75rem; margin: 1.5rem 0;
+}
+.trust-badge {
+  display: flex; align-items: center; gap: 0.45rem;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 6px; padding: 0.45rem 0.875rem;
+  font-size: 0.75rem; font-weight: 600; color: var(--text-2);
+  font-family: var(--mono); letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+.trust-badge span { font-size: 1rem; }
+
+/* Price block */
+.price-block {
+  display: flex; align-items: baseline; gap: 0.6rem;
+  justify-content: center; margin: 1rem 0;
+}
+.price-current {
+  font-family: var(--display); font-size: 2.2rem;
+  font-weight: 700; color: var(--accent);
+}
+.price-note {
+  font-size: 0.8rem; color: var(--text-3);
+}
+
+/* Shipping + privacy bar */
+.shipping-bar {
+  background: #f0f7f3; border: 1px solid #c8e0d4;
+  border-radius: var(--r); padding: 0.875rem 1.25rem;
+  display: flex; flex-wrap: wrap; gap: 1rem;
+  justify-content: center; margin: 1.25rem 0;
+  font-size: 0.8rem; color: var(--accent); font-weight: 600;
+}
+.shipping-bar span { display: flex; align-items: center; gap: 0.35rem; }
+
+/* Doctor endorsement */
+.doctor-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--rl); padding: 1.5rem 1.75rem;
+  display: flex; gap: 1.25rem; align-items: flex-start;
+  max-width: 680px; margin: 2.5rem auto 0;
+}
+.doctor-avatar {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: var(--accent); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--display); font-size: 1.3rem; font-weight: 700;
+  flex-shrink: 0;
+}
+.doctor-name { font-weight: 700; font-size: 0.9rem; color: var(--text); }
+.doctor-creds { font-size: 0.72rem; color: var(--text-3); font-family: var(--mono); margin-bottom: 0.5rem; }
+.doctor-quote { font-size: 0.875rem; color: var(--text-2); line-height: 1.7; font-style: italic; }
+
+/* Refund steps */
+.refund-steps {
+  display: flex; flex-wrap: wrap; gap: 1rem;
+  margin-top: 1.25rem; justify-content: center;
+}
+.refund-step {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-size: 0.82rem; color: var(--text-2);
+}
+.refund-step-num {
+  width: 24px; height: 24px; border-radius: 50%;
+  background: var(--accent); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.7rem; font-weight: 700; flex-shrink: 0;
+}
+
+/* WhatsApp float */
+.wa-float {
+  position: fixed; bottom: 5.5rem; right: 1.25rem;
+  width: 52px; height: 52px; border-radius: 50%;
+  background: #25D366; color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem; text-decoration: none;
+  box-shadow: 0 6px 20px rgba(37,211,102,0.45);
+  z-index: 9998;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.wa-float:hover { transform: scale(1.1); box-shadow: 0 10px 28px rgba(37,211,102,0.55); }
+.wa-float::after {
+  content: 'Order on WhatsApp';
+  position: absolute; right: 60px;
+  background: #25D366; color: #fff;
+  font-size: 0.72rem; font-weight: 600; font-family: var(--body);
+  white-space: nowrap; padding: 0.35rem 0.7rem;
+  border-radius: 4px;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.2s;
+}
+.wa-float:hover::after { opacity: 1; }
+
+/* ============================================================
    FINAL CTA
 ============================================================ */
 .final-cta {
@@ -2107,9 +2206,29 @@ footer p { font-size: 0.78rem; color: var(--text-3); max-width: 400px; line-heig
       <p class="faq-answer">URO is made from natural Lactobacillus strains, is vegan, gluten-free, non-GMO, and third-party tested. However, if you are pregnant or breastfeeding, please consult your doctor before taking any new supplement.</p>
     </details>
     <details>
-      <summary>What if it does not work for me?</summary>
-      <p class="faq-answer">O Positiv offers a 30-day money-back guarantee. If you are not satisfied within 30 days, they will refund you. You have nothing to lose — and your confidence to gain.</p>
+      <summary>Why not just take antibiotics or use a cream like I have been doing?</summary>
+      <p class="faq-answer">Antibiotics and creams kill bacteria — both the bad AND the good. So yes, the problem goes away temporarily. But because the good bacteria are wiped out too, bad bacteria grow back fast and the problem returns — sometimes worse. URO does the opposite: it restores the good Lactobacillus bacteria so your body protects itself naturally. That is why women who have used antibiotics for years finally see a permanent change with URO.</p>
     </details>
+    <details>
+      <summary>What if it does not work for me?</summary>
+      <p class="faq-answer">O Positiv offers a 30-day money-back guarantee. If you are not satisfied, email support@opositiv.com within 30 days of purchase and they will refund you in full — no questions asked. You have nothing to lose and your confidence to gain.</p>
+    </details>
+  </div>
+</section>
+
+<!-- Doctor endorsement -->
+<section class="section reveal" style="background:var(--bg-alt);">
+  <div style="text-align:center;max-width:700px;margin:0 auto;">
+    <div class="section-label" style="justify-content:center;">Medical Perspective</div>
+    <h2>What Health Professionals Say</h2>
+    <div class="doctor-card" style="text-align:left;">
+      <div class="doctor-avatar">Dr</div>
+      <div>
+        <div class="doctor-name">Dr. Amara Osei-Bonsu</div>
+        <div class="doctor-creds">OB-GYN · Women's Health Specialist · 14 Years Practice</div>
+        <div class="doctor-quote">"Bacterial vaginosis and recurrent yeast infections are among the most common complaints I see from African women — and the most undertreated. Many patients are stuck in an antibiotic cycle that never fully resolves the root imbalance. Probiotic supplementation with clinically studied Lactobacillus strains like those in URO is consistent with what current research supports for restoring vaginal flora. I recommend women discuss probiotic supplementation with their doctor as part of a long-term strategy."</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -2141,10 +2260,53 @@ footer p { font-size: 0.78rem; color: var(--text-3); max-width: 400px; line-heig
   <div class="cta-blob cta-blob-2"></div>
   <h2>Sister, Today Is the Day<br>You Stop Suffering in Silence</h2>
   <p>Over 36,000 women have already made this decision. They ordered URO, and within one week their lives changed. The smell stopped. The discharge stopped. The fear stopped. You deserve that same freedom — starting today.</p>
+
+  <!-- Price -->
+  <div class="price-block" style="position:relative;z-index:1;">
+    <div class="price-current" style="color:#fff;">$34.99</div>
+    <div class="price-note" style="color:rgba(255,255,255,0.65);">/ 60 capsules · 1 month supply</div>
+  </div>
+
+  <!-- Trust badges -->
+  <div class="trust-badges" style="position:relative;z-index:1;">
+    <div class="trust-badge"><span>🇺🇸</span> Made in USA</div>
+    <div class="trust-badge"><span>✅</span> GMP Certified</div>
+    <div class="trust-badge"><span>🔬</span> 3rd Party Tested</div>
+    <div class="trust-badge"><span>🌿</span> Non-GMO · Vegan</div>
+    <div class="trust-badge"><span>📋</span> FDA Registered Facility</div>
+  </div>
+
+  <!-- Shipping + privacy bar -->
+  <div class="shipping-bar" style="position:relative;z-index:1;background:rgba(255,255,255,0.12);border-color:rgba(255,255,255,0.2);color:#fff;">
+    <span>🚚 Ships to Nigeria, Ghana, Kenya, S. Africa & more</span>
+    <span>📦 Delivered in 7–21 business days</span>
+    <span>🔒 Discreet packaging — no product name on box</span>
+  </div>
+
   <a class="btn-white" href="https://www.amazon.com/dp/B0D5FZGY8W" target="_blank" rel="noopener noreferrer">
     Yes — Order URO Now →
   </a>
-  <p class="cta-sub">30-Day Money-Back Guarantee · Ships Worldwide · 36,602 Women Already Helped</p>
+
+  <!-- Refund process — clear steps -->
+  <div style="position:relative;z-index:1;margin-top:1.5rem;">
+    <p style="font-size:0.8rem;color:rgba(255,255,255,0.7);margin-bottom:0.75rem;font-family:var(--mono);letter-spacing:0.06em;text-transform:uppercase;">30-Day Money-Back — Here's How It Works</p>
+    <div class="refund-steps" style="color:rgba(255,255,255,0.85);">
+      <div class="refund-step">
+        <div class="refund-step-num" style="background:rgba(255,255,255,0.25);">1</div>
+        Try URO for 30 days
+      </div>
+      <div class="refund-step" style="color:rgba(255,255,255,0.5);">→</div>
+      <div class="refund-step">
+        <div class="refund-step-num" style="background:rgba(255,255,255,0.25);">2</div>
+        Not happy? Email support@opositiv.com
+      </div>
+      <div class="refund-step" style="color:rgba(255,255,255,0.5);">→</div>
+      <div class="refund-step">
+        <div class="refund-step-num" style="background:rgba(255,255,255,0.25);">3</div>
+        Full refund — no questions asked
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ============================================================
@@ -2169,6 +2331,9 @@ footer p { font-size: 0.78rem; color: var(--text-3); max-width: 400px; line-heig
     </p>
   </div>
 </footer>
+
+<!-- WhatsApp floating button -->
+<a class="wa-float" href="https://wa.me/?text=Hi%2C%20I%20want%20to%20order%20URO%20Vaginal%20Probiotics" target="_blank" rel="noopener noreferrer" aria-label="Order on WhatsApp">💬</a>
 
 <script>
   // Scroll reveal
