@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Verafem | Vagina pH Balancer, Odour Eliminator & Wetness Support</title>
 <link rel="preload" as="video" href="images/hero-intro.mp4" type="video/mp4">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <link rel="preload" as="image" href="images/after-happy-1.jpg" fetchpriority="high">
 <link rel="preload" as="image" href="images/after-happy-2.jpg" fetchpriority="high">
 <link rel="preload" as="image" href="images/verafem-product.jpg">
@@ -16,57 +18,58 @@
    TOKENS
 ============================================================ */
 :root {
-  --bg:          #F7F4EE;
-  --bg-alt:      #EDEEE8;
+  /* Verafem — rose/blush palette */
+  --bg:          #FDF5F7;
+  --bg-alt:      #F7E8EE;
   --surface:     #FFFFFF;
-  --border:      #D5D6CE;
-  --text:        #191C1A;
-  --text-2:      #4A5A52;
-  --text-3:      #7A8E83;
-  --accent:      #2A5C43;
-  --accent-2:    #3D7B5C;
-  --accent-lt:   #BDD9CC;
-  --warm:        #D96F40;
-  --warm-lt:     #F3D5C2;
-  --gold:        #B8962C;
+  --border:      #E8C8D5;
+  --text:        #1A0A10;
+  --text-2:      #5C3348;
+  --text-3:      #9C7888;
+  --accent:      #A02050;   /* deep rose — primary brand */
+  --accent-2:    #C04070;
+  --accent-lt:   #F5D0E0;
+  --warm:        #C87820;   /* gold-amber — CTAs */
+  --warm-lt:     #FAE8C8;
+  --gold:        #B87828;
   --star:        #F0A500;
 
   --display: 'Big Caslon','Caslon','Book Antiqua',Georgia,'Times New Roman',serif;
   --body:    'Helvetica Neue',Helvetica,Arial,sans-serif;
   --mono:    'Courier New',Courier,monospace;
 
-  --r:  4px;
-  --rl: 12px;
+  --r:  6px;
+  --rl: 14px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg:       #111714;
-    --bg-alt:   #191F1C;
-    --surface:  #1E2821;
-    --border:   #2C3B33;
-    --text:     #EDF2EE;
-    --text-2:   #90A89A;
-    --text-3:   #607060;
-    --accent:   #5AC48A;
-    --accent-2: #72D49A;
-    --accent-lt:#1A3829;
-    --warm:     #E07848;
-    --warm-lt:  #3A2018;
+    --bg:       #1A080E;
+    --bg-alt:   #220D15;
+    --surface:  #2A0F1A;
+    --border:   #3E1828;
+    --text:     #F5E8EE;
+    --text-2:   #C898A8;
+    --text-3:   #886878;
+    --accent:   #E878A8;
+    --accent-2: #F09BC0;
+    --accent-lt:#4A1028;
+    --warm:     #E09840;
+    --warm-lt:  #3A2010;
     --gold:     #CDA840;
   }
 }
 :root[data-theme="light"] {
-  --bg:#F7F4EE; --bg-alt:#EDEEE8; --surface:#FFFFFF; --border:#D5D6CE;
-  --text:#191C1A; --text-2:#4A5A52; --text-3:#7A8E83;
-  --accent:#2A5C43; --accent-2:#3D7B5C; --accent-lt:#BDD9CC;
-  --warm:#D96F40; --warm-lt:#F3D5C2; --gold:#B8962C; --star:#F0A500;
+  --bg:#FDF5F7; --bg-alt:#F7E8EE; --surface:#FFFFFF; --border:#E8C8D5;
+  --text:#1A0A10; --text-2:#5C3348; --text-3:#9C7888;
+  --accent:#A02050; --accent-2:#C04070; --accent-lt:#F5D0E0;
+  --warm:#C87820; --warm-lt:#FAE8C8; --gold:#B87828; --star:#F0A500;
 }
 :root[data-theme="dark"] {
-  --bg:#111714; --bg-alt:#191F1C; --surface:#1E2821; --border:#2C3B33;
-  --text:#EDF2EE; --text-2:#90A89A; --text-3:#607060;
-  --accent:#5AC48A; --accent-2:#72D49A; --accent-lt:#1A3829;
-  --warm:#E07848; --warm-lt:#3A2018; --gold:#CDA840; --star:#F0A500;
+  --bg:#1A080E; --bg-alt:#220D15; --surface:#2A0F1A; --border:#3E1828;
+  --text:#F5E8EE; --text-2:#C898A8; --text-3:#886878;
+  --accent:#E878A8; --accent-2:#F09BC0; --accent-lt:#4A1028;
+  --warm:#E09840; --warm-lt:#3A2010; --gold:#CDA840; --star:#F0A500;
 }
 
 /* ============================================================
@@ -408,7 +411,7 @@ h1 em { font-style: italic; color: var(--accent); }
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  border: 1.5px dashed rgba(42,92,67,0.18);
+  border: 1.5px dashed rgba(160,32,80,0.18);
   pointer-events: none;
 }
 
@@ -618,15 +621,15 @@ h1 em { font-style: italic; color: var(--accent); }
   text-transform: uppercase;
   margin-bottom: 1rem;
   display: inline-flex; align-items: center; gap: 0;
-  background: linear-gradient(135deg, var(--accent), #4a9b6f, var(--gold));
+  background: linear-gradient(135deg, var(--accent), #d0407a, var(--gold));
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   background-clip: text;
   padding: 0.3rem 0.85rem 0.3rem 0.75rem;
-  border: 1px solid rgba(42,92,67,0.18);
+  border: 1px solid rgba(160,32,80,0.18);
   border-radius: 50px;
-  box-shadow: 0 2px 10px rgba(42,92,67,0.08);
+  box-shadow: 0 2px 10px rgba(160,32,80,0.08);
   backdrop-filter: blur(4px);
-  background-color: rgba(42,92,67,0.04);
+  background-color: rgba(160,32,80,0.04);
 }
 .section-label::before { display: none; }
 h2 {
@@ -1205,11 +1208,11 @@ h3 {
 .fb-comment::before {
   content: '';
   position: absolute; inset: 0;
-  background: linear-gradient(135deg, rgba(42,92,67,0.03) 0%, transparent 60%);
+  background: linear-gradient(135deg, rgba(160,32,80,0.03) 0%, transparent 60%);
   pointer-events: none;
 }
 .fb-comment:hover {
-  box-shadow: 0 8px 28px rgba(42,92,67,0.12);
+  box-shadow: 0 8px 28px rgba(160,32,80,0.12);
   transform: translateY(-2px);
 }
 .fb-avatar {
@@ -1264,13 +1267,13 @@ h3 {
   gap: 0.25rem;
 }
 /* Colour palette for avatars */
-.av-1 { background: #2A5C43; }
+.av-1 { background: #A02050; }
 .av-2 { background: #C06030; }
 .av-3 { background: #5B4FCF; }
 .av-4 { background: #B8962C; }
 .av-5 { background: #1A7A9A; }
 .av-6 { background: #A0522D; }
-.av-7 { background: #3D7B5C; }
+.av-7 { background: #C04070; }
 .av-8 { background: #8B4513; }
 .av-9 { background: #2E6DA4; }
 .av-10{ background: #7B2D8B; }
@@ -1401,7 +1404,7 @@ details[open] summary::after { transform: rotate(45deg); }
 
 /* Shipping + privacy bar */
 .shipping-bar {
-  background: #f0f7f3; border: 1px solid #c8e0d4;
+  background: #fdf0f4; border: 1px solid #e8c0d0;
   border-radius: var(--r); padding: 0.875rem 1.25rem;
   display: flex; flex-wrap: wrap; gap: 1rem;
   justify-content: center; margin: 1.25rem 0;
@@ -1506,7 +1509,7 @@ details[open] summary::after { transform: rotate(45deg); }
   from { transform: translate(0, 0) scale(1); }
   to   { transform: translate(30px, -20px) scale(1.08); }
 }
-.hero-orb-1 { width: 380px; height: 380px; top: -10%; left: -8%; background: radial-gradient(circle, rgba(42,92,67,0.18), transparent 70%); }
+.hero-orb-1 { width: 380px; height: 380px; top: -10%; left: -8%; background: radial-gradient(circle, rgba(160,32,80,0.18), transparent 70%); }
 .hero-orb-2 { width: 300px; height: 300px; bottom: 0; right: -5%; background: radial-gradient(circle, rgba(184,150,44,0.14), transparent 70%); animation-delay: -7s; }
 .hero-orb-3 { width: 200px; height: 200px; top: 30%; right: 15%; background: radial-gradient(circle, rgba(217,111,64,0.1), transparent 70%); animation-delay: -12s; }
 
@@ -1771,8 +1774,8 @@ footer p { font-size: 0.78rem; color: var(--text-3); max-width: 400px; line-heig
 }
 .compare-table tr:last-child td { border-bottom: none; }
 .compare-table td:first-child { text-align: left; font-weight: 600; color: var(--text); }
-.compare-table td.col-uro { background: rgba(42,92,67,0.06); }
-.ct-yes { color: #2A5C43; font-size: 1.15rem; }
+.compare-table td.col-uro { background: rgba(160,32,80,0.06); }
+.ct-yes { color: #A02050; font-size: 1.15rem; }
 .ct-no  { color: #c0392b; font-size: 1.15rem; }
 .ct-partial { color: #B8962C; font-size: 1.05rem; }
 
@@ -1798,7 +1801,7 @@ footer p { font-size: 0.78rem; color: var(--text-3); max-width: 400px; line-heig
   font-family: var(--display); font-weight: 700; font-size: 0.75rem;
   display: flex; align-items: center; justify-content: center; flex-direction: column;
   margin: 0 auto 1rem; position: relative; z-index: 1;
-  box-shadow: 0 4px 14px rgba(42,92,67,0.3);
+  box-shadow: 0 4px 14px rgba(160,32,80,0.3);
   line-height: 1.2;
 }
 .tl-dot span { font-size: 0.55rem; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.05em; }
@@ -2844,17 +2847,85 @@ footer p { font-size: 0.78rem; color: var(--text-3); max-width: 400px; line-heig
 <a class="wa-float" href="https://wa.me/?text=Hi%2C%20I%20want%20to%20order%20Verafem%20%E2%80%94%20Vagina%20pH%20Balancer%2C%20Odour%20Eliminator%20%26%20Wetness%20Support" target="_blank" rel="noopener noreferrer" aria-label="Order on WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none"><path fill="#fff" d="M24 4C13 4 4 13 4 24c0 3.6 1 7 2.7 9.9L4 44l10.4-2.7C17.2 43 20.5 44 24 44c11 0 20-9 20-20S35 4 24 4z"/><path fill="#25D366" d="M24 7.2C14.8 7.2 7.2 14.8 7.2 24c0 3.3.9 6.4 2.5 9.1L7.5 40.5l7.5-2.2c2.6 1.4 5.6 2.2 8.8 2.2 9.2 0 16.8-7.6 16.8-16.8S33.2 7.2 24 7.2z"/><path fill="#fff" d="M33.5 28.4c-.5-.2-2.8-1.4-3.2-1.5-.4-.2-.7-.2-1 .2-.3.5-1.1 1.5-1.4 1.8-.3.3-.5.4-1 .1-.5-.2-2-.7-3.8-2.3-1.4-1.2-2.3-2.7-2.6-3.2-.3-.5 0-.7.2-1 .2-.2.5-.5.7-.8.2-.3.3-.5.5-.8.2-.3.1-.6 0-.8-.1-.2-1-2.5-1.4-3.4-.4-.9-.7-.8-1-.8h-.8c-.3 0-.8.1-1.2.5-.4.4-1.6 1.5-1.6 3.7s1.6 4.3 1.8 4.6c.2.3 3.1 4.9 7.7 6.7 1.1.4 1.9.7 2.5.9.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.1-1.5-.1-.2-.4-.3-.9-.5z"/></svg></a>
 
 <script>
-  // Scroll reveal
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.08 });
+  // GSAP ScrollTrigger reveal — falls back gracefully if GSAP not loaded
+  function initGSAP() {
+    if (typeof gsap === 'undefined') {
+      // Fallback: plain IntersectionObserver
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+      }, { threshold: 0.08 });
+      document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+      return;
+    }
 
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Fade-up for all .reveal sections
+    gsap.utils.toArray('.reveal').forEach(el => {
+      gsap.fromTo(el,
+        { opacity: 0, y: 36 },
+        { opacity: 1, y: 0, duration: 0.75, ease: 'power2.out',
+          scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' }
+        }
+      );
+    });
+
+    // Staggered benefit cards
+    gsap.utils.toArray('.benefits-grid .benefit-card').forEach((card, i) => {
+      gsap.fromTo(card,
+        { opacity: 0, y: 30, scale: 0.97 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.55, ease: 'back.out(1.4)',
+          delay: i * 0.08,
+          scrollTrigger: { trigger: card, start: 'top 90%', toggleActions: 'play none none none' }
+        }
+      );
+    });
+
+    // Staggered testimonial comments
+    gsap.utils.toArray('.fb-comment').forEach((el, i) => {
+      gsap.fromTo(el,
+        { opacity: 0, x: i % 2 === 0 ? -24 : 24 },
+        { opacity: 1, x: 0, duration: 0.6, ease: 'power2.out',
+          delay: i * 0.1,
+          scrollTrigger: { trigger: el, start: 'top 92%', toggleActions: 'play none none none' }
+        }
+      );
+    });
+
+    // Stat counter parallax nudge
+    gsap.utils.toArray('.stat-num').forEach(el => {
+      gsap.fromTo(el,
+        { opacity: 0, scale: 0.8 },
+        { opacity: 1, scale: 1, duration: 0.5, ease: 'back.out(2)',
+          scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
+        }
+      );
+    });
+
+    // Timeline steps stagger
+    gsap.utils.toArray('.tl-step').forEach((el, i) => {
+      gsap.fromTo(el,
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out', delay: i * 0.12,
+          scrollTrigger: { trigger: '.timeline-track', start: 'top 85%', toggleActions: 'play none none none' }
+        }
+      );
+    });
+
+    // How-it-works steps
+    gsap.utils.toArray('.step').forEach((el, i) => {
+      gsap.fromTo(el,
+        { opacity: 0, y: 24 },
+        { opacity: 1, y: 0, duration: 0.55, ease: 'power2.out', delay: i * 0.15,
+          scrollTrigger: { trigger: '.how-steps', start: 'top 85%', toggleActions: 'play none none none' }
+        }
+      );
+    });
+  }
+
+  // Run after GSAP scripts load (they are defer'd)
+  if (document.readyState === 'complete') initGSAP();
+  else window.addEventListener('load', initGSAP);
 
   // ── Social proof notifications ──────────────────────────────
   const proofs = [
@@ -3110,10 +3181,10 @@ footer p { font-size: 0.78rem; color: var(--text-3); max-width: 400px; line-heig
     window.addEventListener('resize', resize, { passive: true });
 
     const COLORS = [
-      'rgba(42,92,67,VAL)',
-      'rgba(184,150,44,VAL)',
-      'rgba(217,111,64,VAL)',
-      'rgba(90,160,110,VAL)',
+      'rgba(160,32,80,VAL)',
+      'rgba(200,80,130,VAL)',
+      'rgba(200,120,32,VAL)',
+      'rgba(240,155,190,VAL)',
     ];
 
     function mkPetal() {
