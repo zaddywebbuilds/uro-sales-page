@@ -3233,11 +3233,7 @@ footer p { font-size: 0.78rem; color: var(--text-3); max-width: 400px; line-heig
         });
         const json = await res.json();
         if (json.success) {
-          document.getElementById('order-name-display').textContent = name;
-          document.getElementById('order-phone-display').textContent = phone;
-          this.style.display = 'none';
-          document.getElementById('verafem-order-success').style.display = 'block';
-          document.getElementById('verafem-order-success').scrollIntoView({ behavior: 'smooth', block: 'center' });
+          window.location.href = 'https://nostalgiasales.com/thank-you/';
         } else {
           errBox.textContent = json.data || 'Something went wrong. Please try again.';
           errBox.style.display = 'block';
