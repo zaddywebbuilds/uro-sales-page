@@ -3224,22 +3224,21 @@ footer p { font-size: 0.78rem; color: var(--text-3); max-width: 400px; line-heig
       btn.textContent = 'Placing your order…';
       btn.disabled = true;
 
-      const data = new FormData(this);
-      data.append('action', 'verafem_order');
+      const quantity = this.querySelector('[name="quantity"]')?.value || '';
+      const whatsapp = this.querySelector('[name="whatsapp"]')?.value.trim() || '';
+
+      const gfData = new FormData();
+      gfData.append('entry.2005620554', name);
+      gfData.append('entry.1166974658', phone);
+      gfData.append('entry.1045781291', whatsapp);
+      gfData.append('entry.1065046570', address);
+      gfData.append('entry.839337160', quantity);
 
       try {
-        const res = await fetch('https://nostalgiasales.com/wp-admin/admin-ajax.php', {
-          method: 'POST', body: data
+        await fetch('https://docs.google.com/forms/u/0/d/e/1FAIpQLSdqxvr8uGxx2YsvpopZGWHZk3v9STbeETLf-9OP0ACUEkIYFg/formResponse', {
+          method: 'POST', body: gfData, mode: 'no-cors'
         });
-        const json = await res.json();
-        if (json.success) {
-          window.location.href = 'https://nostalgiasales.com/thank-you/';
-        } else {
-          errBox.textContent = json.data || 'Something went wrong. Please try again.';
-          errBox.style.display = 'block';
-          btn.textContent = 'Yes — Place My Order Now →';
-          btn.disabled = false;
-        }
+        window.location.href = 'https://nostalgiasales.com/thank-you/';
       } catch (err) {
         errBox.textContent = 'Connection error. Please try again or contact us on WhatsApp.';
         errBox.style.display = 'block';
